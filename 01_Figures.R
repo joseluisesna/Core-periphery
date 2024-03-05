@@ -637,6 +637,6 @@ ggsave("Fig6.png",
        ggarrange(ggarrange(empty_plot,p1,empty_plot,ncol=1,labels=c('','A',''),heights = c(1,2,1)),
                  ggarrange(p2,p4,p3,p5,nrow=2,ncol=2,labels=c('B','D','C','E')),
                  ncol=2,widths = c(1,2)),
-       width=12,height=8)
+       width=6,height=4)
 
 ########################################################################################################################
