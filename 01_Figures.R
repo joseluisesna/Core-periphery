@@ -584,15 +584,15 @@ p3 <- ggplot(data = core,
 
 # Ideal blocks
 core[,ideal1 := c(1,1,1,0,NA,
-                  1,1,1,0,NA,
+                  1,1,0,0,NA,
                   1,1,1,1,NA,
-                  1,1,1,0,NA,
-                  1,1,1,0,NA)]
+                  1,1,0,0,NA,
+                  1,1,0,0,NA)]
 
 p4 <- ggplot(data = core,
        aes(x = Var1, y = Var2)) +
   geom_tile(fill=ifelse(is.na(core$value2),'grey40',
-                        ifelse(core$Var1 %in% 1:3, 'darkseagreen1','white'))) +
+                        ifelse(core$Var1 %in% 1:2, 'darkseagreen1','white'))) +
   # borders of the matrix
   geom_vline(xintercept = c(0.5,5.5), color = 'black') +
   geom_hline(yintercept = c(0.5,5.5), color = 'black') +
@@ -600,7 +600,7 @@ p4 <- ggplot(data = core,
   geom_vline(xintercept = seq(1.5,4.5,by=1), color = 'grey80') +
   geom_hline(yintercept = seq(1.5,4.5,by=1), color = 'grey80') +
   # Cut-off point (0.75 p-core)
-  geom_vline(xintercept = 3.5, color = 'darkseagreen4',linetype='dashed',linewidth=1) +
+  geom_vline(xintercept = 2.5, color = 'darkseagreen4',linetype='dashed',linewidth=1) +
   labs(x = '', y = '') +
   scale_x_discrete(position = "top") +
   geom_text(aes(label = ifelse(core$ideal1 == 1,1,''))) +
@@ -609,21 +609,21 @@ p4 <- ggplot(data = core,
 
 core[,ideal2 := c(1,1,1,1,1,
                   1,1,1,1,1,
-                  1,1,1,1,1,
+                  0,1,0,1,1,
                   0,0,0,0,0,
                   NA,NA,NA,NA,NA)]
 
 p5 <- ggplot(data = core,
        aes(x = Var1, y = Var2)) +
   geom_tile(fill=ifelse(is.na(core$value3),'grey40',
-                        ifelse(core$Var2 %in% 1:3, 'darkseagreen1','white'))) +  # borders of the matrix
+                        ifelse(core$Var2 %in% 1:2, 'darkseagreen1','white'))) +  # borders of the matrix
   geom_vline(xintercept = c(0.5,5.5), color = 'black') +
   geom_hline(yintercept = c(0.5,5.5), color = 'black') +
   # border of the cells
   geom_vline(xintercept = seq(1.5,4.5,by=1), color = 'grey80') +
   geom_hline(yintercept = seq(1.5,4.5,by=1), color = 'grey80') +
   # Cut-off point (0.75 p-core)
-  geom_hline(yintercept = 2.5, color = 'darkseagreen4',linetype='dashed',linewidth=1) +
+  geom_hline(yintercept = 3.5, color = 'darkseagreen4',linetype='dashed',linewidth=1) +
   labs(x = '', y = '') +
   scale_x_discrete(position = "top") +
   geom_text(aes(label = ifelse(core$ideal2 == 1,1,''))) +
