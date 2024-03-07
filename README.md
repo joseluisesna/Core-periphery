@@ -1,6 +1,6 @@
 # Revising the Borgatti-Everett Core-Periphery Model
 
-Code to produce the figures in Nordlund, C., & Estévez, J. L. (In preparation). 'Revising the Borgatti-Everett Core-Periphery Model: Inter-Categorical Density Blocks and Partially Connected Cores'.
+Code to recreate the figures in Nordlund, C., & Estévez, J. L. (In preparation). 'Revising the Borgatti-Everett Core-Periphery Model: Inter-Categorical Density Blocks and Partially Connected Cores'.
 
 **Software requirements**
 
