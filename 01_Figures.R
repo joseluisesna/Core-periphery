@@ -1,7 +1,7 @@
 ########################################################################################################################
 ## REVISING THE BORGATTI-EVERETT CORE-PERIPHERY MODEL
 ## (1) Figures
-## R script written by Jose Luis Estevez (Vaestoliitto)
+## R script written by [name removed for peer review]
 ## Date: Mar 5th, 2024
 ########################################################################################################################
 
@@ -441,27 +441,28 @@ BEfig1dt[,block := ifelse(Var1 %in% 1:4 & Var2 %in% 1:4,'Core',
 
 ip1<- ggplot(data=BEfig1dt,aes(x=value,y=ideal3)) +
   geom_smooth(method='lm',se=FALSE,color='grey20') +
-  geom_jitter(aes(color=block),width = 0.02, height = 0.02,alpha = 3/4) +
+  geom_jitter(aes(fill=block,shape=block),width = 0.025, height = 0.025,alpha=2/3) +
   annotate("text",x=.15,y=.9,label = parse(text = "d == 0.3333")) +
   annotate("text",x=.15,y=.8,label = parse(text = "rho == 0.6686")) +  
-  labs(x='',y='',color='Block') +
+  scale_shape_manual(values = c('Core'=24,'Inter-categorical'=23,'Periphery'=25)) +
+  labs(x='',y='',fill='Block',shape='Block') +
   theme_bw() + theme(legend.position = 'top')
 
 ip2 <- ggplot(data=BEfig1dt,aes(x=value,y=ideal4)) +
   geom_smooth(method='lm',se=FALSE,color='grey20') +
-  geom_jitter(aes(color=block),width = 0.02, height = 0.02,alpha = 3/4) +
+  geom_jitter(aes(fill=block,shape=block),width = 0.025, height = 0.025,alpha=2/3) +
   annotate("text",x=.15,y=.9,label = parse(text = "d == 0.2833")) +
   annotate("text",x=.15,y=.8,label = parse(text = "rho == 0.6664")) +  
-  labs(x='',y='',color='Block') +
-  theme_bw() + theme(legend.position = 'top') 
+  scale_shape_manual(values = c('Core'=24,'Inter-categorical'=23,'Periphery'=25)) +
+  labs(x='',y='',fill='Block',shape='Block') +  theme_bw() + theme(legend.position = 'top') 
 
 ip3 <- ggplot(data=BEfig1dt,aes(x=value,y=ideal5)) +
   geom_smooth(method='lm',se=FALSE,color='grey20') +
-  geom_jitter(aes(color=block),width = 0.02, height = 0.02,alpha = 3/4) +
+  geom_jitter(aes(fill=block,shape=block),width = 0.025, height = 0.025,alpha=2/3) +
   annotate("text",x=.15,y=.9,label = parse(text = "d == 0.3833")) +
   annotate("text",x=.15,y=.8,label = parse(text = "rho == 0.6665")) +  
-  labs(x='Observed values',y='',color='Block') +
-  theme_bw() + theme(legend.position = 'top')
+  scale_shape_manual(values = c('Core'=24,'Inter-categorical'=23,'Periphery'=25)) +
+  labs(x='',y='',fill='Block',shape='Block') +  theme_bw() + theme(legend.position = 'top')
 
 ##########################
 
@@ -482,27 +483,27 @@ cor.test(BEfig1dt$value,BEfig1dt$edb2)
 
 edb1 <- ggplot(data=BEfig1dt,aes(x=value,y=value)) +
   geom_smooth(method='lm',se=FALSE,color='grey20') +
-  geom_jitter(aes(color=block),width = 0.02, height = 0.02,alpha = 3/4) +
+  geom_jitter(aes(fill=block,shape=block),width = 0.025, height = 0.025,alpha=2/3) +
   annotate("text",x=.15,y=.9,label = parse(text = "d == 0.3333")) +
   annotate("text",x=.15,y=.8,label = parse(text = "rho == 1")) +  
-  labs(x='',y='Values in the ideal pattern',color='Block') +
-  theme_bw() + theme(legend.position = 'top')
+  scale_shape_manual(values = c('Core'=24,'Inter-categorical'=23,'Periphery'=25)) +
+  labs(x='',y='',fill='Block',shape='Block') +  theme_bw() + theme(legend.position = 'top')
 
 edb2 <- ggplot(data=BEfig1dt,aes(x=value,y=edb1)) +
   geom_smooth(method='lm',se=FALSE,color='grey20') +
-  geom_jitter(aes(color=block),width = 0.02, height = 0.02,alpha = 3/4) +
+  geom_jitter(aes(fill=block,shape=block),width = 0.025, height = 0.025,alpha=2/3) +
   annotate("text",x=.15,y=.9,label = parse(text = "d == 0.2833")) +
   annotate("text",x=.15,y=.8,label = parse(text = "rho == 0.9484")) +  
-  labs(x='',y='Values in the ideal pattern',color='Block') +
-  theme_bw() + theme(legend.position = 'top')
+  scale_shape_manual(values = c('Core'=24,'Inter-categorical'=23,'Periphery'=25)) +
+  labs(x='',y='',fill='Block',shape='Block') +  theme_bw() + theme(legend.position = 'top')
 
 edb3 <- ggplot(data=BEfig1dt,aes(x=value,y=edb2)) +
   geom_smooth(method='lm',se=FALSE,color='grey20') +
-  geom_jitter(aes(color=block),width = 0.02, height = 0.02,alpha = 3/4) +
+  geom_jitter(aes(fill=block,shape=block),width = 0.025, height = 0.025,alpha=2/3) +
   annotate("text",x=.15,y=.9,label = parse(text = "d == 0.3833")) +
   annotate("text",x=.15,y=.8,label = parse(text = "rho == 0.9504")) +  
-  labs(x='Observed values',y='Values in the ideal pattern',color='Block') +
-  theme_bw() + theme(legend.position = 'top')
+  scale_shape_manual(values = c('Core'=24,'Inter-categorical'=23,'Periphery'=25)) +
+  labs(x='',y='',fill='Block',shape='Block') +  theme_bw() + theme(legend.position = 'top')
 
 ggsave("Fig5.png",
        ggarrange(edb1,ip1,edb2,ip2,edb3,ip3,
