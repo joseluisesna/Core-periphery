@@ -78,12 +78,12 @@ plot.igraph(f2,
             vertex.color='grey80',vertex.size=28,
             edge.color='grey20',edge.width=3,
             layout=layout_with_kk(f2),
-            main="Baker's binary example")
+            main="Baker example")
 plot.igraph(f3,
             vertex.color='grey80',vertex.size=28,
             edge.color='grey20',edge.width=3,
             layout=layout_with_fr(f3),
-            main="Galtung's feudal structure example")
+            main="Galtung's feudal interaction structure")
 dev.off()
 
 rm(f1);rm(f2);rm(f3)
@@ -462,7 +462,7 @@ ip3 <- ggplot(data=BEfig1dt,aes(x=value,y=ideal5)) +
   annotate("text",x=.15,y=.9,label = parse(text = "d == 0.3833")) +
   annotate("text",x=.15,y=.8,label = parse(text = "rho == 0.6665")) +  
   scale_shape_manual(values = c('Core'=24,'Inter-categorical'=23,'Periphery'=25)) +
-  labs(x='',y='',fill='Block',shape='Block') +  theme_bw() + theme(legend.position = 'top')
+  labs(x='Observed',y='',fill='Block',shape='Block') +  theme_bw() + theme(legend.position = 'top')
 
 ##########################
 
@@ -487,7 +487,7 @@ edb1 <- ggplot(data=BEfig1dt,aes(x=value,y=value)) +
   annotate("text",x=.15,y=.9,label = parse(text = "d == 0.3333")) +
   annotate("text",x=.15,y=.8,label = parse(text = "rho == 1")) +  
   scale_shape_manual(values = c('Core'=24,'Inter-categorical'=23,'Periphery'=25)) +
-  labs(x='',y='',fill='Block',shape='Block') +  theme_bw() + theme(legend.position = 'top')
+  labs(x='',y='Ideal',fill='Block',shape='Block') +  theme_bw() + theme(legend.position = 'top')
 
 edb2 <- ggplot(data=BEfig1dt,aes(x=value,y=edb1)) +
   geom_smooth(method='lm',se=FALSE,color='grey20') +
@@ -495,7 +495,7 @@ edb2 <- ggplot(data=BEfig1dt,aes(x=value,y=edb1)) +
   annotate("text",x=.15,y=.9,label = parse(text = "d == 0.2833")) +
   annotate("text",x=.15,y=.8,label = parse(text = "rho == 0.9484")) +  
   scale_shape_manual(values = c('Core'=24,'Inter-categorical'=23,'Periphery'=25)) +
-  labs(x='',y='',fill='Block',shape='Block') +  theme_bw() + theme(legend.position = 'top')
+  labs(x='',y='Ideal',fill='Block',shape='Block') +  theme_bw() + theme(legend.position = 'top')
 
 edb3 <- ggplot(data=BEfig1dt,aes(x=value,y=edb2)) +
   geom_smooth(method='lm',se=FALSE,color='grey20') +
@@ -503,7 +503,7 @@ edb3 <- ggplot(data=BEfig1dt,aes(x=value,y=edb2)) +
   annotate("text",x=.15,y=.9,label = parse(text = "d == 0.3833")) +
   annotate("text",x=.15,y=.8,label = parse(text = "rho == 0.9504")) +  
   scale_shape_manual(values = c('Core'=24,'Inter-categorical'=23,'Periphery'=25)) +
-  labs(x='',y='',fill='Block',shape='Block') +  theme_bw() + theme(legend.position = 'top')
+  labs(x='Observed',y='Ideal',fill='Block',shape='Block') +  theme_bw() + theme(legend.position = 'top')
 
 ggsave("Fig5.png",
        ggarrange(edb1,ip1,edb2,ip2,edb3,ip3,
